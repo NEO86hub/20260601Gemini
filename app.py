@@ -12,7 +12,7 @@ st.title("陽明交大附中 - 86導覽") # 【填空 2】填入導覽員的名�
 try: # 【填空 3】設定例外處理的開頭（嘗試執行）
     with open('tour.json', 'r', encoding='utf-8') as f: # 【填空 4、5】開啟檔案的函式與檔案名稱
     	context_data = json.load(f) # 【填空 6】將 JSON 檔案讀取為 Python 資料的函式
-        context_text = json.dumps(context_data, ensure_ascii=False)
+    	context_text = json.dumps(context_data, ensure_ascii=False)
 except FileNotFoundError: # 【填空 7】捕捉例外的關鍵字
     st.error("找不到 tour.json 檔案")
     st.stop()
