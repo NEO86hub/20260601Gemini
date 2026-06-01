@@ -23,10 +23,10 @@ except Exception as e: # 【填空 8】捕捉其他所有例外的關鍵字
 # 初始化 API 與對話
 if "gemini_client" not in st.session_state:
 	try: # 【填空 9】嘗試讀取金鑰
-    	api_key = st.secrets["GEMINI_API_KEY"] # 【填空 10】Streamlit 讀取機密環境變數的屬性
-        except KeyError: # 【填空 11】捕捉找不到金鑰的例外
-        st.error("未找到 GEMINI_API_KEY")
-        st.stop()
+		api_key = st.secrets["GEMINI_API_KEY"] # 【填空 10】Streamlit 讀取機密環境變數的屬性
+		except KeyError: # 【填空 11】捕捉找不到金鑰的例外
+		st.error("未找到 GEMINI_API_KEY")
+		st.stop()
 
     # 建立 Gemini 客戶端
     client = genai.Client(api_key=api_key) # 【填空 12、13】建立客戶端與填入金鑰變數
