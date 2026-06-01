@@ -34,6 +34,7 @@ if "gemini_client" not in st.session_state:
     	f"請優先參考以下內容回答，若找不到請自動搜尋。\n\n"
     	f"內容：\n{context_text}"
 	)
+
  
 	config = types.GenerateContentConfig(
     	system_instruction=system_instruction,
@@ -51,6 +52,7 @@ if "gemini_client" not in st.session_state:
 	st.session_state.messages = [
     	{"role": "assistant", "content": "你好，我是導覽員xx，請隨時發問。"}
 	]
+
 # 顯示歷史紀錄
 for msg in st.session_state.messages:
 	with st.chat_message(msg["role"]):
@@ -60,6 +62,7 @@ for msg in st.session_state.messages:
 if prompt := st.chat_input("想問什麼事"):
 	st.chat_message("user").write(prompt)
 	st.session_state.messages.append({"role": "user", "content": prompt})
+
  with st.spinner("處理中"):
     	try:
         	response = st.session_state.chat_session.send_message(prompt)
@@ -71,3 +74,5 @@ if prompt := st.chat_input("想問什麼事"):
     	except Exception as e:
         	st.error(f"對話發生異常：{e}")
         	st.info("可能是 API 或模型限制")
+
+
